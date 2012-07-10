@@ -396,6 +396,8 @@ module CASServer
           status 500
           render t.error.invalid_submit_to_uri
         end
+      elsif config[:custom_login_url]
+         redirect config[:custom_login_url], 303
       else
         render @template_engine, :login
       end
